@@ -19,7 +19,7 @@ namespace The_First
 
         public void Afficher()
         {
-            Console.WriteLine("Le solde est :" + sold);
+            Console.WriteLine("Le solde est :" + sold + "Mad");
         }
 
         public int comparer()
