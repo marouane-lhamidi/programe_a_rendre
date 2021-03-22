@@ -52,6 +52,37 @@ namespace The_First
             a.sold = b.sold - c.sold;
             return a;
         }
-
+        public static bool operator <(Mad b, Mad c)
+        {
+            if (b.sold < c.sold)
+            {
+                return true;
+            }
+            return false ;
+        }
+        public static bool operator >(Mad b, Mad c)
+        {
+            if (b.sold > c.sold)
+            {
+                return true;
+            }
+            return false;
+        }
+        public static bool operator == (Mad b, Mad c)
+        {
+            if (b.sold == c.sold)
+            {
+                return true;
+            }
+            return false;
+        }
+        public static bool operator != (Mad b, Mad c)
+        {
+            if (b.sold != c.sold)
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }
