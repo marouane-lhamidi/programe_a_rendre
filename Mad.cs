@@ -83,6 +83,18 @@ namespace The_First
                 return true;
             }
             return false;
+        } 
+        public static Mad operator * (Mad b, double c)
+        {
+            Mad a = new Mad();
+            a.sold = b.sold * c;
+            return a;
+        }
+        public static Mad operator / (Mad b, double c)
+        {
+            Mad a = new Mad();
+            a.sold = b.sold / c;
+            return a;
         }
     }
 }

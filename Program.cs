@@ -45,6 +45,7 @@ namespace The_First
             Console.WriteLine("----------------------------------------------");
             Console.WriteLine("apres la dibiter");
             comp.Aficher(); // pour aficher le compte apres la dibiter
+            comp.showop();
 
             Console.ReadKey();
         }

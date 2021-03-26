@@ -7,10 +7,12 @@ namespace The_First
     class Compte
     {
         private readonly Int64 num_compt;
+        private Operation[] historiques = new Operation[10] ;
         private static Int64 ctr=0;
+        private int contee=1;
         private readonly Client titulaire;
-        private Mad solde;
-        private static Mad plafond = new Mad(10000);
+        protected Mad solde;
+        protected static Mad plafond = new Mad(10000);
 
         public Compte(Mad solde, Client tituler)
         {
@@ -25,13 +27,18 @@ namespace The_First
             if (montant.comparer() == 1)
             {
                 this.solde = this.solde + montant;
+                
+                this.historiques[(contee-1)] = new Operation("crediter");
+                 this.contee++;
+
                 return true;
             }
 
             return false;
         }
-        public bool debiter(Mad montant)
+        public virtual bool debiter(Mad montant)
         {
+
             if (montant.comparer() == 1)
             {
                 if(this.solde.comparer(montant) == 1)
@@ -39,6 +46,9 @@ namespace The_First
                     if (plafond.comparer(montant) == 1)
                     {
                         this.solde = this.solde - montant;
+
+                        this.historiques[(contee - 1)] = new Operation("debiter");
+                        this.contee++;
                         return true;
                     }
 
@@ -54,6 +64,13 @@ namespace The_First
             this.titulaire.Afficher();
             this.solde.Afficher();
             
+        }
+        public void showop()
+        {
+            for (int i = 0; i < this.contee-1; i++)
+            {
+                historiques[i].show();
+            }
         }
     }
 }
